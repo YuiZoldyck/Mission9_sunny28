@@ -40,7 +40,7 @@ namespace Mission9_sunny28.Infrastructure
             for (int i = 1; i <= PageModel.TotalPages; i++)
             {
                 TagBuilder tb = new TagBuilder("a");
-                tb.Attributes["href"] = uh.Action(PageAction, new { productPage = i });
+                tb.Attributes["href"] = uh.Action(PageAction, new { pageNum = i });
                 if (PageClassesEnabled)
                 {
                     tb.AddCssClass(PageClass);
