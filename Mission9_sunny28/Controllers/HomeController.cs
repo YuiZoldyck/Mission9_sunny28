@@ -21,15 +21,18 @@ namespace Mission9_sunny28.Controllers
 
         public IActionResult Index(int pageNum = 1) 
         {
+            // Set page size to 10 entries/page
             int pageSize = 10;
 
             var book = new BooksViewModel
             {
+                // Sets information for all books in model
                 Books = repo.Books
                 .OrderBy(b => b.Title)
                 .Skip((pageNum - 1) * pageSize)
                 .Take(pageSize),
 
+                // Sets page information for what page and what information to view per page
                 PageInfo = new PageInfo
                 {
                     TotalNumBooks = repo.Books.Count(),

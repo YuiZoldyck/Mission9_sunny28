@@ -2,25 +2,15 @@
     ViewData["Title"] = "Book List";
 }
 
-@*@foreach (Book b in Model.Books)
-{
-    <h3>@b.Title</h3>
-    <ul>
-        <li>Author: @b.Author</li>
-        <li>Classification: @b.Classification</li>
-        <li>Category: @b.Category</li>
-    </ul>
-
-}*@
-
-@*<div page-model="@Model.PageInfo" page-action="Index"></div>*@
-
 @model BooksViewModel
+
+@*Copy in the bootstrap for the page*@
 @foreach (Book b in Model.Books)
 {
     <div class="card card-outline-primary m-1 p-1">
         <div class="bg-faded p-1">
             <h4>
+                @*Include all fields but the bookid*@
                 @b.Title
                 <span class="badge badge-pill badge-primary" style="float:right; color:black;">
                     <small>@b.Price.ToString("c")</small>

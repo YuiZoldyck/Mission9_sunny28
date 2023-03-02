@@ -8,6 +8,7 @@ using Mission9_sunny28.Models.ViewModels;
 
 namespace Mission9_sunny28.Infrastructure
 {
+    // Helps build the next page button
     [HtmlTargetElement("div", Attributes = "page-model")]
     public class PaginationTagHelper : TagHelper
     {
