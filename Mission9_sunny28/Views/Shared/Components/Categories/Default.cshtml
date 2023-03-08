@@ -1,0 +1,15 @@
+﻿@{
+}
+
+@model IEnumerable<string>
+
+<div class="d-grid gap-2">
+    <a asp-controller="Home" asp-action="Index" asp-route-category="" asp-route-pageNum="1" class="btn btn-outline-dark">Home</a>
+
+    @foreach (string s in Model)
+    {
+        <a asp-controller="Home" asp-action="Index" asp-route-category="@s" asp-route-pageNum="1"
+           class="btn @(ViewBag.SelectedCategory == s ? "btn-dark" : "btn-outline-dark")">@s</a>
+    }
+
+</div>

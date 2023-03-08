@@ -19,7 +19,7 @@ namespace Mission9_sunny28.Controllers
             repo = temp;
         }
 
-        public IActionResult Index(int pageNum = 1) 
+        public IActionResult Index(string category, int pageNum = 1) 
         {
             // Set page size to 10 entries/page
             int pageSize = 10;
@@ -28,6 +28,7 @@ namespace Mission9_sunny28.Controllers
             {
                 // Sets information for all books in model
                 Books = repo.Books
+                .Where(b => b.Category == category || category == null)
                 .OrderBy(b => b.Title)
                 .Skip((pageNum - 1) * pageSize)
                 .Take(pageSize),
@@ -35,7 +36,8 @@ namespace Mission9_sunny28.Controllers
                 // Sets page information for what page and what information to view per page
                 PageInfo = new PageInfo
                 {
-                    TotalNumBooks = repo.Books.Count(),
+                    TotalNumBooks =
+                        (category == null ? repo.Books.Count() : repo.Books.Where(x => x.Category == category).Count()),
                     BooksPerPage = pageSize,
                     CurrentPage = pageNum
                 }

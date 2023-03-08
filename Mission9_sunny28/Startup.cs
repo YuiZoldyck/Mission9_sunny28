@@ -35,6 +35,12 @@ namespace Mission9_sunny28
             });
 
             services.AddScoped<IBookstoreRepository, EFBooklistRepository>();
+
+            services.AddRazorPages();
+
+            services.AddDistributedMemoryCache();
+
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,11 +53,35 @@ namespace Mission9_sunny28
 
             app.UseStaticFiles();
 
+            app.UseSession();
+
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>
             {
+                // Endpoint for categories & page number
+                endpoints.MapControllerRoute(
+                    name: "CategoryPage",
+                    pattern: "{category}/{pageNum}",
+                    defaults: new { Controller = "Home", action = "Index" }
+                    );
+
+                // Improve URL pattern for pagination
+                endpoints.MapControllerRoute(
+                    name: "Paging",
+                    pattern: "{pageNum}",
+                    defaults: new { Controller = "Home", action = "Index", pageNum = 1 });
+
+                // URL for only categories
+                endpoints.MapControllerRoute(
+                    name: "category",
+                    pattern: "{category}",
+                    defaults: new { Controller = "Home", action = "Index", pageNum = 1 }
+                    );
+
                 endpoints.MapDefaultControllerRoute();
+
+                endpoints.MapRazorPages();
             });
         }
     }
