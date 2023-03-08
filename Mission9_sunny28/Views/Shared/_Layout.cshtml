@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="bg-dark text-white p-3">
-        <a class="btn btn-success btn-sm float-end" asp-page="/Buy">
+        <a class="btn btn-light btn-sm float-end" asp-page="/Buy">
             <i class="bi bi-cart"></i>
             View Cart
         </a>
@@ -16,10 +16,10 @@
 
     </div>
     <div class="row m-1 p-1">
-        <div id="categories" class="col-3">
+        <div id="categories" class="col-2">
             <vc:categories></vc:categories>
         </div>
-        <div class="col-9">
+        <div class="col-10">
             @RenderBody()
         </div>
     </div>

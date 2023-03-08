@@ -5,7 +5,8 @@
 
 <h2>Basket</h2>
 
-<table class="table table-bordered table-striped">
+@*add in the table-striped columns to my table*@
+<table class="table table-bordered table-striped table-striped-columns">
     <thead>
         <tr>
             <th>Item</th>
@@ -30,7 +31,7 @@
     <tfoot>
         <tr>
             <td colspan="3">Total:</td>
-            <td>@Model.basket.CalculateTotal().ToString("c")</td>
+            <td class="">@Model.basket.CalculateTotal().ToString("c")</td>
         </tr>
     </tfoot>
 </table>
