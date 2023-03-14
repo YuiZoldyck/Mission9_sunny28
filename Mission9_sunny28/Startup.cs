@@ -36,6 +36,8 @@ namespace Mission9_sunny28
 
             services.AddScoped<IBookstoreRepository, EFBooklistRepository>();
 
+            services.AddScoped<IPurchaseRepository, EFPurchaseRepository>();
+
             services.AddRazorPages();
 
             services.AddDistributedMemoryCache();

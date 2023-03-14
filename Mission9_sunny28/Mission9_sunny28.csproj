@@ -17,6 +17,7 @@
     <None Remove="Views\Shared\Components\" />
     <None Remove="Views\Shared\Components\Categories\" />
     <None Remove="Pages\" />
+    <None Remove="Views\Pay\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\" />
@@ -32,6 +33,7 @@
     <Folder Include="Views\Shared\Components\" />
     <Folder Include="Views\Shared\Components\Categories\" />
     <Folder Include="Pages\" />
+    <Folder Include="Views\Pay\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\" />
