@@ -20,13 +20,14 @@ namespace Mission9_sunny28.Controllers
             repo = temp;
             basket = b;
         }
-        // GET: /<controller>/
+
         [HttpGet]
         public IActionResult Checkout()
         {
             return View(new Purchase());
         }
 
+        // Purchase books in cart
         [HttpPost]
         public IActionResult Checkout(Purchase purchase)
         {

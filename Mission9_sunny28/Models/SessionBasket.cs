@@ -22,6 +22,7 @@ namespace Mission9_sunny28.Models
         [JsonIgnore]
         public ISession Session { get; set; }
 
+        // Uses virtual methods from basket
         public override void AddItem(Book book, int qty)
         {
             base.AddItem(book, qty);

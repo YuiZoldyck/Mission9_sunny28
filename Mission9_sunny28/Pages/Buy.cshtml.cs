@@ -27,9 +27,9 @@ namespace Mission9_sunny28.Pages
         public void OnGet(string returnUrl)
         {
             ReturnUrl = returnUrl ?? "/";
-            //basket = HttpContext.Session.GetJson<Basket>("basket") ?? new Basket();
         }
 
+        // Add book to cart
         public IActionResult OnPost(int bookId, string returnUrl)
         {
             Book b = repo.Books.FirstOrDefault(x => x.BookId == bookId);
@@ -39,6 +39,7 @@ namespace Mission9_sunny28.Pages
             return RedirectToPage(new { ReturnUrl = returnUrl });
         }
 
+        // Remove book from cart
         public IActionResult OnPostRemove(int BookId, string returnUrl)
         {
             basket.RemoveItem(basket.Items.First(x => x.Book.BookId == BookId).Book);
