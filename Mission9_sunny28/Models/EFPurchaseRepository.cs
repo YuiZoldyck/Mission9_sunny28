@@ -19,7 +19,7 @@ namespace Mission9_sunny28.Models
 
         public void SavePurchase(Purchase purchase)
         {
-            context.AttachRange(purchase.Lines.Select(x => x.Book);
+            context.AttachRange(purchase.Lines.Select(x => x.Book));
 
             if (purchase.PurchaseId == 0)
             {
